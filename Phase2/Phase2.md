@@ -34,7 +34,7 @@ CREATE TABLE courses (
   number SMALLINT UNSIGNED NOT NULL,
   name VARCHAR(100) NOT NULL,
   CONSTRAINT unique_department_number UNIQUE (department, number),
-  CONSTRAINT FK_department_courses FOREIGN KEY (department) REFERENCES departments(subject)
+  CONSTRAINT FK_department_courses FOREIGN KEY (department) REFERENCES departments(subject) ON UPDATE CASCADE
 );
 
 CREATE TABLE classes (
@@ -47,8 +47,8 @@ CREATE TABLE classes (
   end_time TIME NOT NULL,
   location VARCHAR(100) NOT NULL,
   CONSTRAINT unique_course_year_season UNIQUE (course_id, year, season),
-  CONSTRAINT FK_course_id FOREIGN KEY (course_id) REFERENCES courses(id),
-  CONSTRAINT FK_professor_id FOREIGN KEY (professor_id) REFERENCES professors(uid)
+  CONSTRAINT FK_course_id FOREIGN KEY (course_id) REFERENCES courses(id) ON UPDATE CASCADE,
+  CONSTRAINT FK_professor_id FOREIGN KEY (professor_id) REFERENCES professors(uid) ON UPDATE CASCADE
 );
 
 CREATE TABLE enrollment (
@@ -56,10 +56,9 @@ CREATE TABLE enrollment (
   class_id INT UNSIGNED NOT NULL,
   grade ENUM('A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'D-', 'E', 'X', 'WF', 'EW', 'EU', 'F'),
   PRIMARY KEY (student_id, class_id),
-  CONSTRAINT FK_student_id FOREIGN KEY (student_id) REFERENCES students(uid),
-  CONSTRAINT FK_class_id FOREIGN KEY (class_id) REFERENCES classes(id)
+  CONSTRAINT FK_student_id FOREIGN KEY (student_id) REFERENCES students(uid) ON UPDATE CASCADE,
+  CONSTRAINT FK_class_id FOREIGN KEY (class_id) REFERENCES classes(id) ON UPDATE CASCADE
 );
-
 
 CREATE TABLE assignment_categories (
   id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -68,7 +67,7 @@ CREATE TABLE assignment_categories (
   weight SMALLINT UNSIGNED NOT NULL,
   CONSTRAINT unique_name_class_id UNIQUE (name, class_id),
   CONSTRAINT check_weight_range CHECK (weight >= 0 AND weight <= 100),
-  CONSTRAINT FK_class_id_2 FOREIGN KEY (class_id) REFERENCES classes(id)
+  CONSTRAINT FK_class_id_2 FOREIGN KEY (class_id) REFERENCES classes(id) ON UPDATE CASCADE
 );
 
 CREATE TABLE assignments (
@@ -78,7 +77,7 @@ CREATE TABLE assignments (
   contents VARCHAR(8192) NOT NULL,
   points SMALLINT UNSIGNED NOT NULL,
   due DATETIME NOT NULL,
-    CONSTRAINT FK_category_id FOREIGN KEY (category_id) REFERENCES assignment_categories(id)
+  CONSTRAINT FK_category_id FOREIGN KEY (category_id) REFERENCES assignment_categories(id) ON UPDATE CASCADE
 );
 
 CREATE TABLE submission (
@@ -88,10 +87,9 @@ CREATE TABLE submission (
   contents VARCHAR(8192) NOT NULL,
   score SMALLINT UNSIGNED,
   PRIMARY KEY (student_id, assignment_id),
-  CONSTRAINT FK_student_id_2 FOREIGN KEY (student_id) REFERENCES students(uid),
-  CONSTRAINT FK_assignment_id_2 FOREIGN KEY (assignment_id) REFERENCES assignments(id)
+  CONSTRAINT FK_student_id_2 FOREIGN KEY (student_id) REFERENCES students(uid) ON UPDATE CASCADE,
+  CONSTRAINT FK_assignment_id_2 FOREIGN KEY (assignment_id) REFERENCES assignments(id) ON UPDATE CASCADE
 );
-
 
 DELIMITER $$
 CREATE TRIGGER submission_score_check_insert
@@ -116,5 +114,4 @@ BEGIN
   END IF;
 END$$
 DELIMITER ;
-
 ```
