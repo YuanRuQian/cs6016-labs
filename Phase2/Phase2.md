@@ -92,7 +92,7 @@ CREATE TABLE submission (
   CONSTRAINT FK_assignment_id_2 FOREIGN KEY (assignment_id) REFERENCES assignments(id)
 );
 
--- Create a trigger to enforce the score constraint when inserting / updating
+
 DELIMITER $$
 CREATE TRIGGER submission_score_check
 BEFORE UPDATE OR INSERT ON submission
