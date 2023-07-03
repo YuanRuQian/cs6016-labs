@@ -1,29 +1,36 @@
 ﻿<Properties StartupConfiguration="{3E777F89-D589-45CC-A14B-354E44A187FA}|Default">
-  <MonoDevelop.Ide.ItemProperties.ChessBrowser PreferredExecutionTarget="MyAppleMacCatalystID" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="ChessBrowser/MainPage.xaml.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ChessBrowser/ChessBrowser.csproj">
     <Files>
       <File FileName="ChessBrowser/Queries.cs" />
-      <File FileName="ChessBrowser/MainPage.xaml.cs" Line="94" Column="25" />
+      <File FileName="ChessBrowser/MainPage.xaml.cs" />
+      <File FileName="ChessBrowser/PgnReader.cs" />
+      <File FileName="ChessBrowser/MauiProgram.cs" />
+      <File FileName="ChessBrowser/App.xaml" />
+      <File FileName="ChessBrowser.Tests/UnitTest1.cs" />
+      <File FileName="ChessBrowser.Tests/ChessBrowser.Tests.csproj" Line="4" Column="48" />
+      <File FileName="ChessBrowser/ChessBrowser.csproj" Line="4" Column="28" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="ChessBrowser">
-            <Node name="ChessBrowser">
-              <Node name="Dependencies" expanded="True" />
-              <Node name="MainPage.xaml" expanded="True">
-                <Node name="MainPage.xaml.cs" selected="True" />
-              </Node>
-            </Node>
+          <Node name="ChessBrowser" expanded="True">
+            <Node name="ChessBrowser" selected="True" />
+            <Node name="ChessBrowser.Tests" expanded="True" />
           </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="ChessBrowser" expanded="True" selected="True" />
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.ChessBrowser PreferredExecutionTarget="MyAppleMacCatalystID" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
