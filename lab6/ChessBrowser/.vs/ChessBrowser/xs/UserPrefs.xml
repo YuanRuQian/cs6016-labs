@@ -1,22 +1,19 @@
 ﻿<Properties StartupConfiguration="{3E777F89-D589-45CC-A14B-354E44A187FA}|Default">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="ChessBrowser/ChessBrowser.csproj">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ChessBrowser/MainPage.xaml.cs">
     <Files>
-      <File FileName="ChessBrowser/Queries.cs" />
-      <File FileName="ChessBrowser/MainPage.xaml.cs" />
-      <File FileName="ChessBrowser/PgnReader.cs" />
-      <File FileName="ChessBrowser/MauiProgram.cs" />
-      <File FileName="ChessBrowser/App.xaml" />
-      <File FileName="ChessBrowser.Tests/UnitTest1.cs" />
-      <File FileName="ChessBrowser.Tests/ChessBrowser.Tests.csproj" Line="4" Column="48" />
-      <File FileName="ChessBrowser/ChessBrowser.csproj" Line="4" Column="28" />
+      <File FileName="ChessBrowser/MainPage.xaml.cs" Line="100" Column="1" />
+      <File FileName="ChessBrowser/Queries.cs" Line="94" Column="53" />
+      <File FileName="ChessBrowser/ChessGame.cs" Line="45" Column="1" />
+      <File FileName="ChessBrowser.Tests/UnitTest1.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="ChessBrowser" expanded="True">
-            <Node name="ChessBrowser" selected="True" />
-            <Node name="ChessBrowser.Tests" expanded="True" />
+            <Node name="ChessBrowser">
+              <Node name="MainPage.xaml" expanded="True" />
+            </Node>
           </Node>
         </State>
       </Pad>
