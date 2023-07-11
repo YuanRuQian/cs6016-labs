@@ -1,3 +1,6 @@
 [submodule "lab6"]
 	path = lab6
 	url = https://github.com/YuanRuQian/ChessTeamProject.git
+[submodule "lab8"]
+	path = lab8
+	url = https://github.com/YuanRuQian/LibraryWebServer.git
