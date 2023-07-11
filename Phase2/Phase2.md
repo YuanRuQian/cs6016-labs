@@ -2,18 +2,27 @@
 ```sql
 USE Team12LMS;
 
+CREATE TABLE departments (
+  subject VARCHAR(4) NOT NULL PRIMARY KEY,
+  name VARCHAR(100) NOT NULL
+);
+
 CREATE TABLE students (
   uid CHAR(8) PRIMARY KEY NOT NULL,
   first_name VARCHAR(100) NOT NULL,
   last_name VARCHAR(100) NOT NULL,
-  date_of_birth DATE NOT NULL
+  date_of_birth DATE NOT NULL,
+  department VARCHAR(4) NOT NULL,
+  CONSTRAINT FK_department_student FOREIGN KEY (department) REFERENCES departments(subject) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE professors (
   uid CHAR(8) PRIMARY KEY NOT NULL,
   first_name VARCHAR(100) NOT NULL,
   last_name VARCHAR(100) NOT NULL,
-  date_of_birth DATE NOT NULL
+  date_of_birth DATE NOT NULL,
+  department VARCHAR(4) NOT NULL,
+  CONSTRAINT FK_department_professor FOREIGN KEY (department) REFERENCES departments(subject) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE administrators (
@@ -21,11 +30,6 @@ CREATE TABLE administrators (
   first_name VARCHAR(100) NOT NULL,
   last_name VARCHAR(100) NOT NULL,
   date_of_birth DATE NOT NULL
-);
-
-CREATE TABLE departments (
-  subject VARCHAR(4) NOT NULL PRIMARY KEY,
-  name VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE courses (
@@ -77,6 +81,7 @@ CREATE TABLE assignments (
   contents VARCHAR(8192) NOT NULL,
   points SMALLINT UNSIGNED NOT NULL,
   due DATETIME NOT NULL,
+  CONSTRAINT unique_assignment_name UNIQUE (name),
   CONSTRAINT FK_category_id FOREIGN KEY (category_id) REFERENCES assignment_categories(id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
